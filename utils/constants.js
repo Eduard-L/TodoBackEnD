@@ -1,4 +1,4 @@
-const PORT = 3001;
+const PORT = 3000;
 const SALT = 10;
 const MONGO_ADRESS = 'mongodb://localhost:27017/tododb';
 const LOGIN_ERROR = 'Please LogIn';
