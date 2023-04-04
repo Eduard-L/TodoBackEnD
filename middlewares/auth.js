@@ -15,7 +15,9 @@ const handleAuth = async (req, res, next) => {
         }
         const token = authorization.replace('Bearer ', '')
 
-        const verifyToken = process.env.NODE_ENV === DEV_MODE ? DEV_SECRET : process.env.WEB_SECRET;
+        // const verifyToken = process.env.NODE_ENV === DEV_MODE ? DEV_SECRET : process.env.WEB_SECRET;
+        const verifyToken = 'devSecret';
+
 
         const payload = jwt.verify(token, verifyToken)
 

@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "npx eslint ."
+    "lint": "npx eslint .",
+    "deployenv":"scp -r -i ~/.ssh/id_ed25519 .env lwqtbdwrd@34.27.43.188:/home/lwqtbdwrd/TodoBackEnD"
   },
   "keywords": [],
   "author": "",
