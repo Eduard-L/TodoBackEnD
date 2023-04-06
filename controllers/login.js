@@ -7,7 +7,8 @@ const { LOGIN2_ERROR, NOT_VALID_DATA, DEV_MODE, DEV_SECRET } = require('../utils
 
 
 const handleLogin = async (req, res, next) => {
-    const { password, email } = req.body
+    const { password, email } = req.body;
+    const secretKey = process.env.NODE_ENV === DEV_MODE ? DEV_SECRET : process.env.WEB_SECRET;
 
     try {
         if (!password || !email) {
@@ -19,7 +20,7 @@ const handleLogin = async (req, res, next) => {
 
         if (user) {
 
-            const token = await jwt.sign({ _id: user._id }, 'devSecret', { expiresIn: '3d' });
+            const token = await jwt.sign({ _id: user._id }, secretKey, { expiresIn: '3d' });
             res.status(200).json(token);
             return
         }
